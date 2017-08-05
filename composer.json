@@ -1,0 +1,34 @@
+{
+    "name": "tlorentzen/Thetis-pack",
+    "description": "Library handling request to Thetis-packs rest API.",
+    "license": "MIT",
+    "homepage": "",
+    "keywords": ["laravel", "laravel5"],
+    "authors": [
+        {
+            "name": "Thomas Lorentzen",
+            "email": "thomas@tlorentzen.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "illuminate/database": ">= 5.0",
+        "illuminate/support": ">= 5.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.0",
+        "phpunit/phpunit": "~4.0",
+        "mockery/mockery": "~0.9",
+        "vlucas/phpdotenv": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "tlorentzen\\ThetisPack\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    }
+}
