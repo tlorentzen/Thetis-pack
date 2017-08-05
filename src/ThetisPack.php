@@ -32,7 +32,7 @@ class ThetisPack{
         return $this->doRequest('shipments/'.$id);
     }
 
-    public function getOrderByOrderId($orderId)
+    public function getShipmentByOrderId($orderId)
     {
         $parameters = array();
         $parameters['shipmentNumberMatch'] = $orderId;
