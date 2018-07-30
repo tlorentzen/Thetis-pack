@@ -24,7 +24,7 @@ class ThetisPack{
 
     public function getShipments($parameters=array())
     {
-        return $this->doRequest('shipments', $parameters);
+        return $this->doRequest('shipments/', $parameters);
     }
 
     public function getShipmentById($id)
@@ -37,13 +37,37 @@ class ThetisPack{
         $parameters = array();
         $parameters['shipmentNumberMatch'] = $orderId;
 
-        $result = $this->doRequest('shipments', $parameters);
+        $result = $this->doRequest('shipments/', $parameters);
 
         if(!is_array($result) OR count($result) != 1){
             return false;
         }
 
         return $result[0];
+    }
+
+    public function getProductById($id)
+    {
+        return $this->doRequest('products/'.$id);
+    }
+
+    public function getProductByProductNumber($productNumber)
+    {
+        $parameters = array();
+        $parameters['productNumberMatch'] = $productNumber;
+
+        $result = $this->doRequest('products/', $parameters);
+
+        if(!is_array($result) OR count($result) != 1){
+            return false;
+        }
+
+        return $result[0];
+    }
+
+    public function rawRequest($resource, $parameters=array(), $type='GET')
+    {
+        return $this->doRequest($resource, $parameters, $type);
     }
 
     private function doRequest($resource, $parameters=array(), $type='GET')
